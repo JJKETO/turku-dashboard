@@ -1,0 +1,27 @@
+<script type='text/javascript'>
+$(function() {
+  // These settings override the defaults set in application.coffee. You can do this on a per dashboard basis.
+  Dashing.numColumns = 6
+});
+</script>
+
+<div class="gridster">
+  <ul>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="sodexo" data-view="Ruokalista" data-title= "Sodexolla tänään ruokana"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="vr" data-view="Aikataulu" data-title= "Seuraavat junat"></div>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="twitter_mentions" data-view="Comments" style="background-color:#ff9618;" data-moreinfo="Tweets tagged with #DataScience"></div>
+      <i class="fa fa-twitter icon-background"></i>
+    </li>
+    <li data-row="1" data-col="1" data-sizex="1" data-sizey="1">
+  		<div data-id="changeMood" data-view="Moodimage" data-title="Mood of the day" data-width = "70%" style="background-color: #ff9618"></div>
+	</li>
+	<li data-row="1" data-col="1" data-sizex="2" data-sizey="1">
+      <div data-id="stock" data-view="Rickshawgraph" data-renderer="line" data-min="3" data-max = "4" data-title = "Affecto 30pv pörssikurssi"></div>
+    </li>
+  </ul>
+</div>
