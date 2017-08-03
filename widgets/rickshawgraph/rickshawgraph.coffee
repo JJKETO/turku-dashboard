@@ -24,6 +24,7 @@ class Dashing.Rickshawgraph extends Dashing.Widget
 
   getRenderer: () -> return @get('renderer') or @get('graphtype') or 'area'
 
+
   # Retrieve the `current` value of the graph.
   @accessor 'current', ->
     answer = null

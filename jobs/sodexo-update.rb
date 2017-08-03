@@ -22,7 +22,7 @@ end
 
 
 SCHEDULER.every '1m', :first_in => 0 do |job|
-	cols = [{ cols: [ {value: 'Ruoka'}, {value: 'Kategoria'}, {value: 'Hinta'}, {value: 'Extra'} ] }]
+	cols = [{ cols: [ {value: 'Ruoka'}, {value: 'Hinta'}, {value: 'Extra'} ] }]
 	sodexoURL = getURL
 	begin
 		sodexoData = get_json(sodexoURL).fetch("courses")
@@ -30,7 +30,6 @@ SCHEDULER.every '1m', :first_in => 0 do |job|
 		ary = Array.new
 		sodexoData.each do |row|
 			rows = { cols: [ {value: "#{row['title_fi']}"},
-        			{value: "#{row['category']}"},
         			{value: "#{row['price']}"},
       				{value: "#{row['properties']}"}
       			] }
