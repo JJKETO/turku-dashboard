@@ -15,8 +15,8 @@ SCHEDULER.every '5s', :first_in => 0 do
 		puts "Fetching data from google failed"
 	end
 		points = []
-		for i in 1..30
-			points[i-1] = [i, values[5*i-2].to_f]
+		for i in 8..30
+			points[i-8] = [i, values[5*i-4].to_f]
 		end
 
 		a = points.map{|s| {x: s[0], y: s[1] }}

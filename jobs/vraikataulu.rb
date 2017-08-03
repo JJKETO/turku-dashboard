@@ -9,7 +9,7 @@ def get_json(sourceURL)
 end
 
 def getData()
-vrURL = "https://rata.digitraffic.fi/api/v1/schedules?departure_station=KUT&arrival_station=HKI&limit=8"
+vrURL = "https://rata.digitraffic.fi/api/v1/schedules?departure_station=KUT&arrival_station=HKI&limit=7"
 
 
 begin
@@ -53,7 +53,7 @@ end
 
 
 output = []
-for i in 0..7
+for i in 0..6
 	output[i] = [
 		departures[i][8..9] + "." + departures[i][5..6] + ". ",
 		"Kupittaa", 

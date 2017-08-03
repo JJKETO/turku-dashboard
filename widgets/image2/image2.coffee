@@ -1,4 +1,4 @@
-class Dashing.Image extends Dashing.Widget
+class Dashing.Image2 extends Dashing.Widget
 
   ready: ->
     # This is fired when the widget is done being rendered

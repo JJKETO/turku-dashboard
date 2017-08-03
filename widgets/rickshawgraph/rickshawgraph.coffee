@@ -17,9 +17,11 @@ class Dashing.Rickshawgraph extends Dashing.Widget
   formatNumber = (number) ->
       for divisior in DIVISORS
           if number > divisior.number
-              number = "#{Math.round(number / (divisior.number/10))/10}#{divisior.label}"
+              number = "#{Math.round(number / (divisior.number/100))/100}#{divisior.label}"
               break
-
+          if number < 1000
+              number = number.toFixed(2)
+              break  
       return number
 
   getRenderer: () -> return @get('renderer') or @get('graphtype') or 'area'
@@ -77,6 +79,17 @@ class Dashing.Rickshawgraph extends Dashing.Widget
         answer = formatNumber answer
 
     return answer
+
+  @accessor 'change', ->
+    answer = null
+    series = @_parseData {points: @get('points'), series: @get('series')}
+    data = series[0].data
+    answer = ((data[data.length - 1].y - data[0].y) / data[0].y) * 100
+    if parseFloat(answer) > 0 
+      answer = "+" + answer.toFixed(2)
+    else 
+      answer = answer.toFixed(2)
+    return answer + '%'
 
 
   ready: ->
