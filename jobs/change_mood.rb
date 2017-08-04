@@ -1,9 +1,10 @@
-# :first_in sets how long it takes before the job is first run. In this case, it is run immediately
-SCHEDULER.every '4s', :first_in => 0 do |job|
+#This job updates the mood icon. Currently only uses random number to choose the emotion.
+#This should later be updated to be based on the face API.
+SCHEDULER.every '10s', :first_in => 0 do |job|
 	value = rand(10)
-	if value > 6 
+	if value > 3 
 		image = '/Icon_Emotion_happy.svg'
-	elsif value > 3
+	elsif value > 1
 		image = '/Icon_Emotion_neutral.svg'
 	else	
 		image = '/Icon_Emotion_sad.svg'

@@ -12,10 +12,10 @@ twitter = Twitter::REST::Client.new do |config|
   config.access_token_secret = "E96EgxyhwUxfCbKOHxCpOUvUWQzC7Ax6pFYoldoBV4BKP"
 end
 
-search_term = URI::encode('#DataScience')
-SCHEDULER.every '10s', :first_in => 0 do |job|
+search_term = URI::encode('#Data -filter:retweets :)')
+SCHEDULER.every '10m', :first_in => 0 do |job|
   begin
-    tweets = twitter.search("#{search_term}")
+    tweets = twitter.search("#{search_term}", {result_type: "popular"})
 
     if tweets
       tweets = tweets.map do |tweet|
